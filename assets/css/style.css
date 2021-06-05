@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #6ca4cc;
+    width:100%;
+    padding: 5px;
+}
+
+.header {
+    text-align: center;
+    color:antiquewhite;
+}
+
+.citySearch{
+    margin-left: 50px;
+}
+
+#cityName{
+    width: 25%
+}
+
+.btn {
+    background-color: #6ca4cc
+}
+
+.cityWeather{
+    border: 3px solid black;
+    width: 50%;
+    height: 270px;
+    float: right;
+    margin-right: 50px;
+    margin-top: -125px;
+}
+
+#weatherBox{
+    justify-content: space-around;
+}
+
+.history {
+    margin-left: 50px;
+}
+
+.history-button{
+    background-color: #6ca4cc;
+    width: 38%;
+}

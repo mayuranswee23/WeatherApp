@@ -5,8 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
     
+<header>
+        <h1 class="header">Weather Dashboard</h1>  
+</header>
+
+<main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4 citySearch">
+        <h3>Search for a City</h3>
+        <form id="user-form">
+            <!-- <label class="" for="search">City Name</label> -->
+            <input name="cityName" id="cityName" type="text" autofocus="true" class="form-input" placeholder="City Name"/>
+            <button class="btn">Search</button>
+        </form>
+
+        <div class="col-12 col-md-8 cityWeather">
+            <div id="weatherBox">
+             <h5>City Name</h5>
+                <div id="currentDate">Date:</div>
+                <div id="currentTemperature">Temperature:</div>
+                <div id="currentWindSpeed">Wind:</div>
+                <div id="uvIndex">UV Index</div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="col-12 col-md-4 history">
+        <h3> Search History:</h3>
+        <button class="btn history-button"><span id="city-search-name"></span>City Name</button>
+    </div>
+   
+
+
+
+
+</main>
+
+    <script src="assets/js/script.js"></script> 
 </body>
 </html>
