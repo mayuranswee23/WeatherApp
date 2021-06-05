@@ -34,11 +34,10 @@ header {
     float: right;
     margin-right: 50px;
     margin-top: -125px;
+    padding-left: 20px;
+    line-height: 300%;
 }
 
-#weatherBox{
-    justify-content: space-around;
-}
 
 .history {
     margin-left: 50px;
@@ -47,4 +46,23 @@ header {
 .history-button{
     background-color: #6ca4cc;
     width: 38%;
+}
+
+.forecast{
+    border: 3px solid black;
+    width: 48.5%;
+    height: 320px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 50px;
+    padding-left: 20px;
+    
+}
+
+.dayOne, .dayTwo, .dayThree, .dayFour, .dayFive {
+    border: 2px solid black;
+    height: 250px;
+    width: 19.2%;
+    display: inline-block;
+   background-color:#6ca4cc;   
 }
