@@ -29,7 +29,7 @@ header {
 
 .cityWeather{
     border: 3px solid black;
-    width: 50%;
+    width: 55%;
     height: 270px;
     float: right;
     margin-right: 50px;
@@ -43,14 +43,14 @@ header {
     margin-left: 50px;
 }
 
-.history-button{
+.historyButton{
     background-color: #6ca4cc;
     width: 38%;
 }
 
 .forecast{
     border: 3px solid black;
-    width: 48.5%;
+    width: 53.2%;
     height: 320px;
     float: right;
     margin-right: 50px;
