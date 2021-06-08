@@ -30,7 +30,7 @@ header {
 .cityWeather{
     border: 3px solid black;
     width: 55%;
-    height: 270px;
+    height: 280px;
     float: right;
     margin-right: 50px;
     margin-top: -125px;
@@ -45,7 +45,12 @@ header {
 
 .historyButton{
     background-color: #6ca4cc;
-    width: 38%;
+    width: 35%;
+    margin-top: 15px;
+}
+
+.historyButton:hover{
+    background-color: green;
 }
 
 .forecast{
@@ -65,4 +70,53 @@ header {
     width: 19.2%;
     display: inline-block;
    background-color:#6ca4cc;   
+}
+
+.shift {
+    float:right;
+}
+
+#uvReadingGreen{
+    background-color: green;
+    display: block;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#uvReadingYellow{
+    background-color:yellow;
+    display: block;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#uvReadingOrange{
+    background-color:orange;
+    display: block;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#uvReadingRed{
+    background-color: red;
+    display: block;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#uvReadingPurple{
+    background-color:purple;
+    display: block;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    border-radius: 25px;
 }

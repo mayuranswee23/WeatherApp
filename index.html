@@ -25,8 +25,9 @@
 
         <div class="col-12 col-md-8 cityWeather">
             <div id="weatherBox flex">
-                <h5>City Name</h5>
-                <div id="currentDate"><p>Date:</p></div>
+                <h5 id=city>City Name</h5>
+                <div id="icon" class="shift"></div>
+                <div id="currentDate">Date<p></p></div>
                 <div id="currentTemperature"><p>Temperature:</p></div>
                 <div id="currentWindSpeed"><p>Wind:</p></div>
                 <div id="uvIndex"><p>UV Index:</p></div>
@@ -47,8 +48,17 @@
 
 
     <div class="col-12 col-md-4 history">
-        <h3> Search History:</h3>
-        <button class="btn historyButton"><span id="city-search-name"></span>City Name</button>
+        <h3> Look at:</h3>
+        <div class="cityList flex">
+        <button class="btn historyButton"><span class="city-search-name"></span>Toronto</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Ottawa</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Montreal</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Quebec City</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Calgary</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Winnipeg</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Edmonton</button>
+        <button class="btn historyButton"><span class="city-search-name"></span>Vancouver</button>
+    </div>
     </div>
    
 
