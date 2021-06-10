@@ -32,9 +32,15 @@ var populatePage = function (data){
     var selectedCity = data.city.name
     city.innerHTML = selectedCity
 
-    var date = document.getElementById("currentDate")
-    var selectedDate = data.list[0].dt_txt
-    date.innerHTML = selectedDate
+
+    var today = new Date();
+    var date =  (today.getMonth()+1) + '/' + today.getDate() + '/' +  today.getFullYear() ;
+    var currentDate = document.getElementById("currentDate")
+    currentDate.innerHTML = date
+
+    // var date = document.getElementById("currentDate")
+    // var selectedDate = data.list[0].dt_txt
+    // date.innerHTML = selectedDate
     
     // date.appendChild(selectedDate)
     // date.innerHTML = selectedDate
@@ -60,6 +66,12 @@ var populatePage = function (data){
     var celsius = document.createTextNode(" °C")
     temperature.appendChild (celsius)
 
+    var humidity = document.getElementById("currentHumidity")
+    var selectedUv = data.list[0].main.humidity
+    humidity.innerHTML = selectedUv
+    var humidityNotation = document.createTextNode (" %")
+    humidity.appendChild(humidityNotation)
+
     var wind = document.getElementById("currentWindSpeed")
     var selectedWind = data.list[0].wind.speed
     var windSpeed = selectedWind * 3.6
@@ -83,12 +95,12 @@ var populatePage = function (data){
 
     fetch(uvUrl)
     .then(response => response.json())
-    .then(data => populateUv(data));
+    .then(data => populateData(data));
 
 
 }
 
-function populateUv (data){
+function populateData (data){
     console.log(data)
     var uvIndex = document.getElementById("uvIndex")
     var selectedUv = data.current.uvi
@@ -110,8 +122,13 @@ function populateUv (data){
     if (selectedUv >10){
         uvSpan.setAttribute ('id', 'uvReadingPurple')
         }
-        
-    uvIndex.appendChild(uvSpan)
+     uvIndex.appendChild(uvSpan)
+
+
+    
+
+
+
 }
 
 
