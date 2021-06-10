@@ -32,31 +32,10 @@ var populatePage = function (data){
     var selectedCity = data.city.name
     city.innerHTML = selectedCity
 
-
     var today = new Date();
     var date =  (today.getMonth()+1) + '/' + today.getDate() + '/' +  today.getFullYear() ;
     var currentDate = document.getElementById("currentDate")
     currentDate.innerHTML = date
-
-    // var date = document.getElementById("currentDate")
-    // var selectedDate = data.list[0].dt_txt
-    // date.innerHTML = selectedDate
-    
-    // date.appendChild(selectedDate)
-    // date.innerHTML = selectedDate
-    // date.appendChild(dateText)
-    // var displayDate = document.createElement('span')
-    // displayDate.className = "display"
-    // displayDate.textContent = selectedDate
-    
-    
-    // var temperature = document.getElementById("currentTemperature")
-    // var selectedTemp = data.list[0].main.temp
-    // var tempCelsius = selectedTemp - 272.15
-    // Math.floor(tempCelsius)
-    // var displayTemp = document.createElement('p')
-    // displayTemp.textContent = tempCelsius
-    // temperature.appendChild(displayTemp)
 
     var temperature = document.getElementById("currentTemperature")
     var selectedTemp = data.list[0].main.temp
@@ -87,7 +66,7 @@ var populatePage = function (data){
     image.src = iconUrl;
     icon.appendChild(image)
 
-    //obtaining UV index from another API
+    //obtaining index from another API
     var lat = data.city.coord.lat
     var lon = data.city.coord.lon
     var uvUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${key}`
@@ -96,6 +75,7 @@ var populatePage = function (data){
     fetch(uvUrl)
     .then(response => response.json())
     .then(data => populateData(data));
+    
 
 
 }
@@ -124,34 +104,58 @@ function populateData (data){
         }
      uvIndex.appendChild(uvSpan)
 
-
     
+     var dayOne = document.getElementById("dayOneDate")
+     var today = new Date();
+     var date =  (today.getMonth()+1) + '/' + (today.getDate()+1) + '/' +  today.getFullYear() ;
+    dayOne.innerHTML = date
+    // dayOne.appendChild(date)
 
+    var dayOneIcon = document.getElementById("dayOneIcon")
+    var dayOneSelectedIcon = data.daily[1].weather[0].icon
+    var dayOneIconUrl = 'http://openweathermap.org/img/wn/'+ dayOneSelectedIcon +'@2x.png'
+    var dayOneimage = new Image ();
+    dayOneimage.src = dayOneIconUrl;
+    dayOneIcon.appendChild(dayOneimage)
+
+    var dayOneTemp = document.getElementById("dayOneTemp")
+    var selectedDayOneTemp = data.daily[1].temp.day
+    var dayOneCelsius = selectedDayOneTemp - 272.15
+    var tempDayOneFloor = Math.floor(dayOneCelsius)
+    dayOneTemp.innerText = tempDayOneFloor
+    var doCelsius = document.createTextNode(" °C")
+    dayOneTemp.appendChild (doCelsius)
+
+    var dayOneWind = document.getElementById("dayOneWind")
+    var dayOneSelectedWind = data.daily[1].wind_speed
+    var dayOneWindSpeed = dayOneSelectedWind * 3.6
+    var dayOneRoundedSpeed = Math.round(dayOneWindSpeed*10)/10
+    dayOneWind.innerText = dayOneRoundedSpeed
+    var dayOneKmh = document.createTextNode(" km/h")
+    dayOneWind.appendChild (dayOneKmh)
+
+
+    var dayOneHumidity = document.getElementById("dayOneHumidity")
+    var selectedDayOneHumidity = data.daily[1].humidity
+    dayOneHumidity.innerHTML = selectedDayOneHumidity
+    var humidityNotation = document.createTextNode (" %")
+    dayOneHumidity.appendChild(humidityNotation)
 
 
 }
 
 
-
-
-// var uvUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${key}`
-
-// function getUv(cityName){
-//     var uvIndex = document.getElementById("uvIndex")
-//     var lat = data.city.coord.lat
-//     var lon = data.city.coord.lon
-//     console.log(uvUrl)
-// }
-
-//     fetch(uvUrl)
-//     .then(response => response.json())
-//     .then(data => populateUv(data));
+// var wind = document.getElementById("currentWindSpeed")
+// var selectedWind = data.list[0].wind.speed
+// var windSpeed = selectedWind * 3.6
+// var roundedSpeed = Math.round(windSpeed*10)/10
+// wind.innerText = roundedSpeed
+// var kmH = document.createTextNode(" km/h")
+// wind.appendChild (kmH)
 
 
 
-    // function getData(city){
-    //     var url = `https:api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`;
-    //     fetch(url)
-    //   .then((response) => response.json())
-    //   .then((shark) => populatePage(shark));
-    // }
+
+
+
+    

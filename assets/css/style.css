@@ -30,7 +30,7 @@ header {
 .cityWeather{
     border: 3px solid black;
     width: 55%;
-    height: 320px;
+    height: 330px;
     float: right;
     margin-right: 50px;
     margin-top: -125px;
@@ -61,7 +61,7 @@ header {
     margin-right: 50px;
     margin-top: 50px;
     padding-left: 20px;
-    
+    text-align: center;
 }
 
 .dayOne, .dayTwo, .dayThree, .dayFour, .dayFive {
