@@ -56,7 +56,7 @@ header {
 .forecast{
     border: 3px solid black;
     width: 53.2%;
-    height: 400px;
+    height: 320px;
     float: right;
     margin-right: 50px;
     margin-top: 50px;
@@ -64,13 +64,13 @@ header {
     text-align: center;
 }
 
-/* .dayOne, .dayTwo, .dayThree, .dayFour, .dayFive {
+.dayOne, .dayTwo, .dayThree, .dayFour, .dayFive {
     border: 2px solid black;
     height: 250px;
     width: 19.2%;
     display: inline-block;
    background-color:#6ca4cc;   
-} */
+}
 
 .shift {
     float:right;
