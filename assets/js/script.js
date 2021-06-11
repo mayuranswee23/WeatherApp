@@ -6,6 +6,8 @@ var key = 'afa013543942d5e89b71cb83d24b61a7'
 var getCityName = document.querySelector('form').addEventListener('submit', function(event){
     event.preventDefault();
     var cityName = document.getElementById("cityName").value
+    save(cityName)
+    showSearchHistory()
 
     if(!cityName) {
         // Show error;
@@ -69,7 +71,7 @@ var populatePage = function (data){
     //obtaining index from another API
     var lat = data.city.coord.lat
     var lon = data.city.coord.lon
-    var uvUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${key}`
+    var uvUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${key}`
     console.log(uvUrl)
 
     fetch(uvUrl)
@@ -120,7 +122,7 @@ function populateData (data){
 
     var dayOneTemp = document.getElementById("dayOneTemp")
     var selectedDayOneTemp = data.daily[1].temp.day
-    var dayOneCelsius = selectedDayOneTemp - 272.15
+    var dayOneCelsius = selectedDayOneTemp
     var tempDayOneFloor = Math.floor(dayOneCelsius)
     dayOneTemp.innerText = tempDayOneFloor
     var doCelsius = document.createTextNode(" °C")
@@ -134,27 +136,54 @@ function populateData (data){
     var dayOneKmh = document.createTextNode(" km/h")
     dayOneWind.appendChild (dayOneKmh)
 
-
     var dayOneHumidity = document.getElementById("dayOneHumidity")
     var selectedDayOneHumidity = data.daily[1].humidity
     dayOneHumidity.innerHTML = selectedDayOneHumidity
     var humidityNotation = document.createTextNode (" %")
     dayOneHumidity.appendChild(humidityNotation)
 
-
+    for (var i =1; i<6; i++){
+        var Temp = data.daily[i].temp.day
+        var Wind = data.daily[i].wind_speed
+        var Humidity = data.daily[i].humidity
+        var Icon = data.daily[i].weather[0].icon
+        var date =  (today.getMonth()+[1]) + '/' + (today.getDate()+[i]) + '/' +  today.getFullYear() ;
+        console.log(Temp)
+        console.log(Wind)
+        console.log(Humidity)
+        console.log(date)
+    }
 }
 
 
-// var wind = document.getElementById("currentWindSpeed")
-// var selectedWind = data.list[0].wind.speed
-// var windSpeed = selectedWind * 3.6
-// var roundedSpeed = Math.round(windSpeed*10)/10
-// wind.innerText = roundedSpeed
-// var kmH = document.createTextNode(" km/h")
-// wind.appendChild (kmH)
+function save (newCity){
+    var cityArr = JSON.parse(localStorage.getItem("savedCity")) || []
+    cityArr.push(newCity)
+    localStorage.setItem("savedCity", JSON.stringify(cityArr))
+}
 
+function showSearchHistory (){
+    var cityList = document.querySelector(".cityList")
+    cityList.innerHTML = ""
+    // if there is nothing in localStorage, an array will be created
+    var cityArr = JSON.parse(localStorage.getItem("savedCity")) || []
+    cityArr.forEach(cityName => { 
+        var cityButton = document.createElement("button")
+        cityButton.textContent = cityName
+        cityButton.classList.add("btn", "historyButton")
+        cityList.appendChild(cityButton)
+    });
+}
 
-
+showSearchHistory()
+var historyButtons = document.querySelectorAll(".historyButton")
+historyButtons.forEach(button => {
+    button.addEventListener("click", function(){
+        var cityText = this.textContent
+        var url = `https:api.openweathermap.org/data/2.5/forecast?q=${cityText}&appid=${key}`
+        getWeather(url)
+    })
+})   
 
 
 
