@@ -324,7 +324,7 @@ var historyButtons = document.querySelectorAll(".historyButton")
 historyButtons.forEach(button => {
     button.addEventListener("click", function(){
         var cityText = this.textContent
-        var url = `https:api.openweathermap.org/data/2.5/forecast?q=${cityText}&appid=${key}`
+        var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityText}&appid=${key}`
         getWeather(url)
     })
 })   
