@@ -15,7 +15,7 @@ var getCityName = document.querySelector('form').addEventListener('submit', func
         return;
     }
     // console.log(cityName)
-    var url = `https:api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
+    var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
     getWeather(url)
 })
 
