@@ -60,17 +60,26 @@ header {
     float: right;
     margin-right: 50px;
     margin-top: 50px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     text-align: center;
+    display: flex;
+    justify-content: space-between;
 }
 
-.dayOne, .dayTwo, .dayThree, .dayFour, .dayFive {
+.forecastHeader{
+    width: 53.2%;
+    float: right;
+    margin-right: 50px;
+    margin-top: 25px;
+    margin-bottom: -30px;
+}
+
+ .dayOne {
     border: 2px solid black;
     height: 250px;
-    width: 19.2%;
-    display: inline-block;
-   background-color:#6ca4cc;   
-}
+     display: inline-block;
+    background-color:#6ca4cc;    
+} 
 
 .shift {
     float:right;
